@@ -62,7 +62,7 @@ try:
     <body style="margin: 0; padding: 0;">
         <div class="container">
             <div id="content">
-                <img id="main-image" src="https://media.tenor.com/K2QK1D7rM6sAAAAi/bear-kiss-bear-kisses.gif" alt="Cute bear">
+                <img id="main-image" src="{github_raw_url}5.jpg" alt="Cute bear">
                 <h1 class="question">Willst du mein Valentine sein? 💖</h1>
                 
                 <div class="buttons">

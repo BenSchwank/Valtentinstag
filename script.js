@@ -9,7 +9,7 @@ let noCount = 0;
 // Locally it stays empty
 const baseUrl = "";
 
-// User images
+// User images to cycle through
 const images = [
     "1.jpg",
     "2.jpg",
@@ -35,13 +35,12 @@ function getNoButtonText() {
 }
 
 function getNextImage() {
-    // noCount is already incremented before calling this.
-    // So on first click, noCount is 1. We want images[0].
-    // Hence: (noCount - 1)
+    // noCount starts at 1 (first click).
+    // We want images[0] ("1.jpg") on first click.
     const index = (noCount - 1) % images.length;
     const imgName = images[index];
 
-    // Check if it's an absolute URL (starts with http or https)
+    // Check if it's an absolute URL
     if (imgName.startsWith('http')) {
         return imgName;
     }

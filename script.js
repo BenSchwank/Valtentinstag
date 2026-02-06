@@ -9,7 +9,7 @@ let noCount = 0;
 // Locally it stays empty
 const baseUrl = "";
 
-// Placeholder array - User will rename images to 1.jpg, 2.jpg, etc.
+// User images
 const images = [
     "1.jpg",
     "2.jpg",
@@ -35,9 +35,18 @@ function getNoButtonText() {
 }
 
 function getNextImage() {
-    // Cycle through images: 0 -> 1 -> 2 -> 3 -> 4 -> 0 ...
-    const index = noCount % images.length;
-    return baseUrl + images[index];
+    // noCount is already incremented before calling this.
+    // So on first click, noCount is 1. We want images[0].
+    // Hence: (noCount - 1)
+    const index = (noCount - 1) % images.length;
+    const imgName = images[index];
+
+    // Check if it's an absolute URL (starts with http or https)
+    if (imgName.startsWith('http')) {
+        return imgName;
+    }
+
+    return baseUrl + imgName;
 }
 
 noBtn.addEventListener('click', () => {
@@ -53,8 +62,6 @@ noBtn.addEventListener('click', () => {
     const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
     yesBtn.style.fontSize = `${currentSize * 1.5}px`;
     yesBtn.style.padding = `${10 * (noCount * 0.5 + 1)}px ${25 * (noCount * 0.5 + 1)}px`;
-
-    // Optional: Move No button slightly/randomly if desired, but request said simple interaction text change
 });
 
 yesBtn.addEventListener('click', () => {
@@ -63,5 +70,4 @@ yesBtn.addEventListener('click', () => {
         <h1 class="question">Juhuuu! Ich liebe dich! ❤️</h1>
         <p class="response-text">Bis zum 14. Februar! 😘</p>
     `;
-    // Add confetti here if possible, but keep it simple for now as requested
 });

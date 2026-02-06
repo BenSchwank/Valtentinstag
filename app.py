@@ -32,6 +32,12 @@ try:
     css_content = load_file("style.css")
     js_content = load_file("script.js")
     
+    # TRICK: Für Streamlit Cloud müssen wir die Bilder-URL anpassen.
+    # Wir injizieren die GitHub-URL in das JavaScript.
+    # Da wir den Link zum Repo kennen: https://github.com/BenSchwank/Valtentinstag
+    github_raw_url = "https://raw.githubusercontent.com/BenSchwank/Valtentinstag/main/"
+    js_content = js_content.replace('const baseUrl = "";', f'const baseUrl = "{github_raw_url}";')
+
     # Laden der HTML Struktur (wir entfernen script/style tags, da wir sie explizit einfügen)
     html_raw = load_file("index.html")
     

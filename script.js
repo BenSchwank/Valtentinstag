@@ -5,6 +5,17 @@ const mainImage = document.getElementById('main-image');
 const question = document.querySelector('.question');
 
 let noCount = 0;
+// Base URL for images - will be populated by app.py for online deployment
+// Locally it stays empty
+const baseUrl = "";
+
+// Placeholder array - User will rename images to 1.jpg, 2.jpg, etc.
+const images = [
+    "1.jpg",
+    "2.jpg",
+    "3.jpg",
+    "4.jpg"
+];
 
 const phrases = [
     "Nein",
@@ -23,11 +34,20 @@ function getNoButtonText() {
     return phrases[Math.min(noCount, phrases.length - 1)];
 }
 
+function getNextImage() {
+    // Cycle through images: 0 -> 1 -> 2 -> 3 -> 4 -> 0 ...
+    const index = noCount % images.length;
+    return baseUrl + images[index];
+}
+
 noBtn.addEventListener('click', () => {
     noCount++;
 
     // Change No Button Text
     noBtn.innerText = getNoButtonText();
+
+    // Change Image
+    mainImage.src = getNextImage();
 
     // Increase Yes Button Size
     const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);

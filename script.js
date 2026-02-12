@@ -68,7 +68,7 @@ yesBtn.addEventListener('click', () => {
         <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" alt="Happy Bear" style="width: 250px; border-radius: 15px; margin-bottom: 20px;">
         <h1 class="question">Juhuuu! Ich liebe dich! ❤️</h1>
         <p class="response-text">Bis zum 14. Februar! 😘</p>
-        <p class="response-text" style="font-size: 1.2rem; margin-top: 10px;">(Gib Ben einen Kuss!)</p>
+        <p class="response-text" style="font-size: 1.2rem; margin-top: 10px;">(Gib Timo einen Kuss!)</p>
     `;
 
     // E-Mail senden (via Formspree - der einfachste Weg für statische Seiten)
@@ -79,3 +79,4 @@ yesBtn.addEventListener('click', () => {
     }).catch(e => console.log("Email error (expected if not configured)", e));
 
 });
+

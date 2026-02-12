@@ -11,10 +11,10 @@ const baseUrl = "";
 
 // User images to cycle through
 const images = [
-    "1.jpg",
-    "2.jpg",
-    "3.jpg",
-    "4.jpg"
+    "1.jpeg",
+    "2.jpeg",
+    "3.jpeg",
+    "4.jpeg"
 ];
 
 const phrases = [
@@ -79,4 +79,5 @@ yesBtn.addEventListener('click', () => {
     }).catch(e => console.log("Email error (expected if not configured)", e));
 
 });
+
 
